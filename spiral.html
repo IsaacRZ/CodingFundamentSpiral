@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function matriz(n){
+    let arr = [];
+    
+    for(let i = 0; i < n; i++){
+        arr.push([])
+    }
+
+    let contador=1
+
+    let inicioF=0
+    let inicioC=0
+
+    let finF = n-1
+    let finC =n-1
+
+    while(inicioC<=finC && inicioF<=finF){  //CUADRARO n*n
+    
+        for(let i = inicioC; i<=finC; i++){     //Fila arriba
+            arr[inicioF][i] = contador++;
+        } 
+        inicioF++
+
+        for(let i = inicioF; i<= finF; i++){    //COLUMNA Derecha
+            arr[i][finC] = contador++
+        }
+        finC--
+
+        for(let i = finC; i>=inicioC; i--){   
+            arr[finF][i] = contador++
+        }
+        finF--
+
+        for(let i = finF; i>=inicioF; i--){
+            arr[i][inicioC] = contador++
+        }
+        inicioC++
+    }
+    return arr;
+}
+
+var userNumb = prompt("n") 
+console.log(matriz(userNumb))
+    </script>
+
+    
+</body>
+</html>
